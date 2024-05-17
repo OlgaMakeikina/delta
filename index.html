@@ -6,57 +6,106 @@
     <title>delta</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
    <!-- Navigation bar -->
    <header class="header">
     <!-- Logo -->
-    <a href="#" class="logo"><img src="laibl.gif" alt="logotype" width="100px"></a>
-    <a href="#" class="">АО ДЕЛЬТА</a>
+    <a href="#" class="logo"><img src="laibl.gif" alt="logotype" width="100px"></a>  
     <!-- Hamburger icon -->
-    <input class="side-menu" type="checkbox" id="side-menu"/>
-    <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+    <button class="menu_btn" id="menu_btn">Открыть</button>
+    <!-- <input class="side-menu" type="checkbox" id="side-menu"/>
+    <label class="hamb" for="side-menu"><span class="hamb-line"></span></label> -->
     <!-- Menu -->
-    <nav class="nav">
+    <nav class="nav" id="nav">
         <ul class="menu">
-            <li><a href="#" class="link">О компании</a></li>
-            <li><a href="#" class="link">Наши объекты</a></li>
-            <li><a href="#" class="link">Документация</a></li>
-            <li><a href="#" class="link">Новости</a></li>
-            <li><a href="#" class="link">Контакты</a></li> 
+            <li><a href="#about_company" class="link">О компании</a></li>
+            <li><a href="#objects" class="link">Наши объекты</a></li>
+            <li><a href="#documents" class="link">Документация</a></li>
+            <li><a href="#news" class="link">Новости</a></li>
+            <li><a href="#contacts" class="link">Контакты</a></li> 
             <li><a class="phone" href="tel:+74992012020">+7(499)2012020</a></li>
         </ul>
     </nav>
-  
 </header>
 <!-- Main content -->
 <main>
+<section>
+<div class="main_img">
+        <h1 class="main_header">АО ДЕЛЬТА</h1>
+        <p class="main_header_text">склады и офисы в аренду от собственника</p>
+<div class="cont_info_about">
+    <div class="info_about">
+    <img src="market.png" width="60px">
+      <p class="info_about_p">30 лет на рынке</p>        
+    </div> 
+    <div class="info_about">
+    <img src="location.png" width="60px">
+    <p class="info_about_p">5 км от МКАД</p>
+  </div>
+    <div class="info_about">
+       <img src="deal.png" width="60px">
+    <p class="info_about_p">Без посредников</p>   
+    </div>
+</div>
+    </div> 
+</section>
+
     <section id="about_company">
-    <h1 class="">ДЕЛЬТА</h1>
-    <p>склады и офисы в аренду от собственника</p>
-    <h2>О компании</h2>
+    <h2 class="heading">О компании</h2>
     </section>
 
 
     <section id="objects">
-    <h2>Наши объекты</h2>
+    <h2 class="heading">Наши объекты</h2>
+
+    <h3>ОФИСЫ</h3>
+    <div>
+
+    </div>
     </section>
 
 
     <section id="documents">
-        <h2>Документация</h2>
+        <h2 class="heading">Документация</h2>
     </section>
 
     <section id="news">
-        <h2>Новости</h2>
+        <h2 class="heading">Новости</h2>
     </section>
 
     <section id="contacts">
-        <h2>Контакты</h2>
+        <diV class="cont_contacts">
+         <div>
+            <h4 class="contacts_headings">Контакты</h4>
+            <div class="contacts_headings_info">
+                <img src="phone.png" width="30px">
+                <p><a href="tel:+74992012020">+7(499)201-2020</a></p>   
+            </div>
+         <div class="contacts_headings_info">
+            <img src="mail.png" width="30px">
+             <p><a href="mailto:delta.delta.2012@mail.ru">delta.delta.2012@mail.ru</a></p>
+         </div>
+           
+        </div>
+        <div>
+            <h4 class="contacts_headings">Карта сайта</h4>
+            <div class="contact_map">
+            <p><a href="#about_company" class="contact_link">О компании</a></p>
+            <p><a href="#objects" class="contact_link">Наши объекты</a></p>
+            <p><a href="#documents" class="contact_link">Документация</a></p>
+            <p><a href="#news" class="contact_link">Новости</a></p>
+            <p><a href="#contacts" class="contact_link">Контакты</a></p>     
+            </div>
+
+        </div>   
+        </diV>
+<hr>
+<p class="footer">АО Дельта - официальный сайт компании</p>
     </section>
 </main>
+<script src="script.js"></script>
 </body>
 </html>
