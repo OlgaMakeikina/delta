@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #EEEEEE;
+    background-color: #f3f5fb;
 }
 .menu a {
     text-decoration: none;
@@ -22,6 +22,7 @@ ul {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background: linear-gradient(to bottom,  #11468F, #0E2F56);
     position: sticky;
+    z-index: 1000;
     top: 0;
     width: 100%;
     display: flex;
@@ -134,9 +135,295 @@ font-weight: 300;
 text-transform: uppercase;
 }
 
+/* ОФИСЫ */
+#objects {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.cont_item {
+    width: 100%;
+    padding: 20px;
+}
+.cont_office {
+    position: relative;
+    margin-bottom: 50px;
+    padding: 10px;
+    background-color: #ffffff;
+    display: flex;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05), /* Bottom shadow */
+                0 -8px 16px rgba(0, 0, 0, 0.05), /* Top shadow */
+                8px 0 16px rgba(0, 0, 0, 0.05), /* Right shadow */
+                -8px 0 16px rgba(0, 0, 0, 0.05); /* Left shadow */
+}
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+}
+
+#pictures {
+    display: block;
+}
+
+.slider_btn {
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    height: 100%;
+}
+
+#back {
+    left: 10px; 
+}
+
+#next {
+    right: 10px; 
+}
+
+.cont_office_name {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.cont_office_name p{
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #0E2F56;
+}
+.cont_office_name span{
+    font-weight: 400;
+    color: #DA1212;
+}
+.characterictics_header {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #0E2F56;
+}
+.characterictics {
+    display: flex;
+    align-items: center;
+}
+
+.characterictics p {
+    font-family: "Roboto", sans-serif;
+    margin-left: 10px;
+    color: #0E2F56;
+}
+.characterictics span {
+    font-weight: 500;
+    text-decoration: underline;
+}
+.characterictics p:hover {
+    color: #DA1212;
+}
+
+.more_info {
+    height: 300px;
+}
+
+.more_info_btn {
+    color: #0E2F56;
+    border: #DA1212 2px solid;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+}
+
+
+
+
+/* О компании */
+#about_company {
+    height: 700px;
+    width: 100%;
+    background-image: url("storage.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgb(14, 47, 86, 0.9);
+}
+.heading_company {
+    text-align: center;
+    padding: 50px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #EEEEEE;
+    }
+
+.company_cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    height: 400px;    
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.company_box {
+    background-color: #EEEEEE;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    color: #0E2F56;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgb(238, 238, 238, 0.2),
+    0 -8px 16px rgb(238, 238, 238, 0.2),
+    8px 0 16px rgb(238, 238, 238, 0.2),
+    -8px 0 16px rgb(238, 238, 238, 0.2);
+    cursor: pointer;
+}
+/* Новости */
+#news {
+    background-color: #ffffff;
+}
+/* Карусель */
+.document_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+.carousel-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.carousel {
+    overflow: hidden;
+    width: 660px; /* Adjust to 3 * item width */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 200px; /* Adjust according to the item width */
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border: #DA1212 1px solid;
+    margin: 20px;
+}
+
+.carousel-prev,
+.carousel-next {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+/* Документы */
+
+.accordion {
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    color: #0E2F56;
+    cursor: pointer;
+    padding: 18px;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin-left: 15%;
+    margin-top: 5px;
+    transition: 0.4s;
+  }
+  
+  .accordion:hover {
+    border: #DA1212 1px solid;
+  }
+
+  .active {
+    border: #DA1212 2px solid;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-out, padding 0.6s ease-out;
+    background-color: white;
+    margin-left: 15%;
+    width: 70%;
+  }
+
+  .panel.open {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    max-height: 300px;
+  }
+
+  .accordion_header {
+    font-family: "Roboto", sans-serif;
+    color: #0E2F56;
+  }
+
+  .accordion_btn {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+    border: none;
+    background-color: #11468F;
+    cursor: pointer;
+  }
+
+  .accordion_btn {
+    box-sizing: border-box;
+-webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+background-color: transparent;
+border: 2px solid #e74c3c;
+cursor: pointer;
+font-size: 0.950em;
+line-height: 1;
+margin: 15px;
+padding: 10px 30px;
+text-decoration: none;
+text-align: center;
+text-transform: uppercase;
+border-color: #11468F;
+color: #fff;
+box-shadow: 0 0 40px 40px #11468F inset, 0 0 0 0 #11468F;
+-webkit-transition: all 150ms ease-in-out;
+transition: all 150ms ease-in-out;
+}
+.accordion_btn:hover {
+  color: #11468F;
+box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
+}
+.accordion_btn:hover, .neon-btn:focus {
+outline: 0;
+}
+   
 
 /* Контакты */
 #contacts {
+    margin-top: 50px;
     background: linear-gradient(to bottom,  #11468F, #0E2F56);
     padding: 50px;
 }
@@ -152,6 +439,8 @@ text-transform: uppercase;
 
 .contacts_headings {
     color: #EEEEEE;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
     font-size: 22px;
     padding: 10px;
     position: relative; 
@@ -166,7 +455,7 @@ text-transform: uppercase;
     top: 50%; /* Center vertically */
     width: 40px; /* Width of the line */
     height: 2px; /* Height of the line */
-    background-color: red; /* Color of the line */
+    background-color: #DA1212; /* Color of the line */
     transform: translateY(-50%); /* Center the line vertically */
 }
 .contacts_headings::before {
@@ -205,6 +494,33 @@ text-transform: uppercase;
 .footer {
     color: #EEEEEE;
 }
+
+
+/* scroll to up*/
+#toTop,
+#call_us, 
+#write_us {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  #call_us {
+    bottom: 70px;
+  }
+  #write_us {
+    bottom: 120px;
+  }
+  #toTop:hover,
+  #call_us:hover,
+  #write_us:hover {
+    transform: translateX(-10px);
+    transition: transform 0.3s ease;
+  }
 
 @media (max-width: 768px) {
     .header {

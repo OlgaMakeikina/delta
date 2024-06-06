@@ -6,3 +6,192 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.classList.toggle('open');
     });
 });
+
+// карусель фото
+const back = document.querySelector('#back');
+const next = document.querySelector('#next');
+const photos = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
+let i=0;
+next.addEventListener('click', () => {
+    i++;
+    if (i > photos.length-1) {
+        i=0;
+    }
+    document.querySelector('#pictures').src=photos[i];
+    })
+back.addEventListener('click', () => {
+    i--;
+    if (i<0) {
+        i = photos.length-1;
+    }
+    document.querySelector('#pictures').src=photos[i];
+})
+
+
+  // Открытие PDF в новой вкладке
+  document.getElementById('ustav').addEventListener('click', function() {
+    window.open('ystavpao.pdf', '_blank');
+});
+
+document.getElementById('soobshenie24').addEventListener('click', function() {
+    window.open('Soobshenie_akcioneram_ao_delta_2024.pdf', '_blank');
+});
+document.getElementById('soobshenie23').addEventListener('click', function() {
+    window.open('Soobshenie_akcioneram_ao_delta_2023.pdf', '_blank');
+});
+document.getElementById('soobshenie22').addEventListener('click', function() {
+    window.open('Soobshenie_akcioneram_ao_delta_2022.pdf', '_blank');
+});
+document.getElementById('soobshenie21').addEventListener('click', function() {
+    window.open('Soobshenie_akcioneram_ao_delta_2021.pdf', '_blank');
+});
+
+
+document.getElementById('golosovanie24').addEventListener('click', function() {
+    window.open('golos_2024.pdf', '_blank');
+});
+document.getElementById('golosovanie23').addEventListener('click', function() {
+    window.open('golos_2023.pdf', '_blank');
+});
+document.getElementById('golosovanie22').addEventListener('click', function() {
+    window.open('golos_2022.pdf', '_blank');
+});
+document.getElementById('golosovanie21').addEventListener('click', function() {
+    window.open('golos_2021.pdf', '_blank');
+});
+document.getElementById('golosovanie20').addEventListener('click', function() {
+    window.open('golos_2020.pdf', '_blank');
+});
+document.getElementById('golosovanie19').addEventListener('click', function() {
+    window.open('golos_2019.pdf', '_blank');
+});
+
+
+document.getElementById('ocenka1').addEventListener('click', function() {
+    window.open('Otchet ocenka arendi sklad Alt 41-1.pdf', '_blank');
+});
+document.getElementById('ocenka6').addEventListener('click', function() {
+    window.open('Otchet ocenka arendi sklad Alt 41-6.pdf', '_blank');
+});
+
+
+
+
+// Карусель
+document.addEventListener('DOMContentLoaded', function () {
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    const carouselTrack = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const itemsToShow = 3;
+    const totalItems = items.length;
+    let currentIndex = 0;
+
+    // Clone first and last items for infinite effect
+    const firstItems = Array.from(items).slice(0, itemsToShow).map(item => item.cloneNode(true));
+    const lastItems = Array.from(items).slice(-itemsToShow).map(item => item.cloneNode(true));
+    firstItems.forEach(item => carouselTrack.appendChild(item));
+    lastItems.forEach(item => carouselTrack.insertBefore(item, items[0]));
+
+    // Update current index and translateX value
+    currentIndex = itemsToShow; // Starting point with offset
+    updateCarousel();
+
+    function updateCarousel() {
+        const itemWidth = items[0].clientWidth;
+        const newTransform = -currentIndex * itemWidth;
+        carouselTrack.style.transform = `translateX(${newTransform}px)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+            if (currentIndex === 0) {
+                setTimeout(() => {
+                    currentIndex = totalItems;
+                    carouselTrack.style.transition = 'none';
+                    updateCarousel();
+                    setTimeout(() => {
+                        carouselTrack.style.transition = 'transform 0.5s ease';
+                    });
+                }, 500); // Timeout must match the CSS transition duration
+            }
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < totalItems + itemsToShow) {
+            currentIndex++;
+            updateCarousel();
+            if (currentIndex === totalItems + itemsToShow) {
+                setTimeout(() => {
+                    currentIndex = itemsToShow;
+                    carouselTrack.style.transition = 'none';
+                    updateCarousel();
+                    setTimeout(() => {
+                        carouselTrack.style.transition = 'transform 0.5s ease';
+                    });
+                }, 500); // Timeout must match the CSS transition duration
+            }
+        }
+    });
+
+    // Initialize carousel
+    updateCarousel();
+});
+
+// accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const accordions = document.getElementsByClassName('accordion');
+
+    for (const button of accordions) {
+      button.addEventListener('click', function() {
+        const panel = this.nextElementSibling;
+        const isOpen = panel.classList.contains('open');
+
+        // Закрытие всех панелей
+        for (const otherButton of accordions) {
+          const otherPanel = otherButton.nextElementSibling;
+          if (otherPanel !== panel) {
+            otherPanel.style.maxHeight = null;
+            otherPanel.classList.remove('open');
+            otherButton.classList.remove('active');
+          }
+        }
+
+        // Переключение текущей панели
+        if (isOpen) {
+          panel.style.maxHeight = null;
+          panel.classList.remove('open');
+          this.classList.remove('active');
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "700px";
+          panel.classList.add('open');
+          this.classList.add('active');
+        }
+      });
+    }
+  });
+// scroll to up
+
+const mybutton = document.querySelector("#toTop");
+const call = document.querySelector("#call_us");
+const message = document.querySelector("#write_us");
+
+window.addEventListener("scroll", function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+        call.style.display = "block";
+        message.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+        call.style.display = "none";
+        message.style.display = "none";
+    }
+});
+
+mybutton.addEventListener("click", function() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
