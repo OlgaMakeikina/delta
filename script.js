@@ -1,11 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menu_btn');
+    const menuIcon = document.getElementById('menu_icon');
     const nav = document.getElementById('nav');
+    const menuItems = nav.getElementsByTagName('li');
 
     menuBtn.addEventListener('click', () => {
         nav.classList.toggle('open');
+
+        // Меняем иконку кнопки
+        if (nav.classList.contains('open')) {
+            menuIcon.src = 'close.png';
+            menuIcon.alt = 'Закрыть';
+        } else {
+            menuIcon.src = 'menu.png';
+            menuIcon.alt = 'Открыть';
+        }
     });
+
+    for (const item of menuItems) {
+        item.addEventListener('click', () => {
+            nav.classList.remove('open');
+            menuIcon.src = 'menu.png';
+            menuIcon.alt = 'Открыть';
+        });
+    }
 });
+
 
 // карусель фото
 const back = document.querySelector('#back');
