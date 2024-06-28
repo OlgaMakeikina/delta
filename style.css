@@ -69,6 +69,8 @@ ul {
 }
 
 .menu_btn {
+    background-color: transparent;
+    border: none;
     display: none;
 }
 
@@ -268,7 +270,7 @@ text-transform: uppercase;
 .company_cont {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
     height: 400px;    
     margin-left: 20%;
     margin-right: 20%;
@@ -284,11 +286,24 @@ text-transform: uppercase;
     8px 0 16px rgb(238, 238, 238, 0.2),
     -8px 0 16px rgb(238, 238, 238, 0.2);
     cursor: pointer;
+    height: 200px;
+}
+
+.company_box:hover {
+transform: scale(1.1);
+transition: ease 0.5s;
+}
+
+.company_box h4 {
+    color: #DA1212;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 /* Новости */
-#news {
-    background-color: #ffffff;
-}
+
+
+
 /* Карусель */
 .document_box {
     display: flex;
@@ -332,9 +347,12 @@ text-transform: uppercase;
 
 
 /* Документы */
-
-.accordion {
+#documents {
     background-color: #ffffff;
+    padding-bottom: 100px;
+}
+.accordion {
+    background-color: #f3f5fb;
     font-family: "Roboto", sans-serif;
     color: #0E2F56;
     cursor: pointer;
@@ -350,7 +368,7 @@ text-transform: uppercase;
     margin-top: 5px;
     transition: 0.4s;
   }
-  
+
   .accordion:hover {
     border: #DA1212 1px solid;
   }
@@ -373,11 +391,6 @@ text-transform: uppercase;
     padding-top: 18px;
     padding-bottom: 18px;
     max-height: 300px;
-  }
-
-  .accordion_header {
-    font-family: "Roboto", sans-serif;
-    color: #0E2F56;
   }
 
   .accordion_btn {

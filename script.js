@@ -33,6 +33,34 @@ back.addEventListener('click', () => {
     window.open('ystavpao.pdf', '_blank');
 });
 
+document.getElementById('otchet3').addEventListener('click', function() {
+    window.open('year2012.pdf', '_blank');
+});
+document.getElementById('otchet6').addEventListener('click', function() {
+    window.open('year2013.pdf', '_blank');
+});
+document.getElementById('otchet8').addEventListener('click', function() {
+    window.open('financial_year2014.pdf', '_blank');
+});
+
+document.getElementById('otchet2').addEventListener('click', function() {
+    window.open('audit2012.pdf', '_blank');
+});
+document.getElementById('otchet5').addEventListener('click', function() {
+    window.open('audit2013.pdf', '_blank');
+});
+document.getElementById('otchet7').addEventListener('click', function() {
+    window.open('audit.pdf', '_blank');
+});
+
+document.getElementById('otchet1').addEventListener('click', function() {
+    window.open('buh2012.pdf', '_blank');
+});
+document.getElementById('otchet4').addEventListener('click', function() {
+    window.open('buh2013.pdf', '_blank');
+});
+
+
 document.getElementById('soobshenie24').addEventListener('click', function() {
     window.open('Soobshenie_akcioneram_ao_delta_2024.pdf', '_blank');
 });
@@ -146,33 +174,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const accordions = document.getElementsByClassName('accordion');
 
     for (const button of accordions) {
-      button.addEventListener('click', function() {
-        const panel = this.nextElementSibling;
-        const isOpen = panel.classList.contains('open');
+        button.addEventListener('click', function() {
+            const panel = this.nextElementSibling;
+            const isOpen = panel.classList.contains('open');
 
-        // Закрытие всех панелей
-        for (const otherButton of accordions) {
-          const otherPanel = otherButton.nextElementSibling;
-          if (otherPanel !== panel) {
-            otherPanel.style.maxHeight = null;
-            otherPanel.classList.remove('open');
-            otherButton.classList.remove('active');
-          }
-        }
+            // Закрытие всех панелей
+            for (const otherButton of accordions) {
+                const otherPanel = otherButton.nextElementSibling;
+                if (otherPanel !== panel) {
+                    otherPanel.style.transition = 'none'; // Отключение анимации
+                    otherPanel.style.maxHeight = null;
+                    otherPanel.classList.remove('open');
+                    otherButton.classList.remove('active');
+                    // Принудительное выполнение стилей
+                    otherPanel.offsetHeight;
+                    otherPanel.style.transition = ''; // Включение анимации
+                }
+            }
 
-        // Переключение текущей панели
-        if (isOpen) {
-          panel.style.maxHeight = null;
-          panel.classList.remove('open');
-          this.classList.remove('active');
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "700px";
-          panel.classList.add('open');
-          this.classList.add('active');
-        }
-      });
+            // Переключение текущей панели
+            if (isOpen) {
+                panel.style.maxHeight = null;
+                panel.classList.remove('open');
+                this.classList.remove('active');
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "700px";
+                panel.classList.add('open');
+                this.classList.add('active');
+            }
+        });
     }
-  });
+});
+
 // scroll to up
 
 const mybutton = document.querySelector("#toTop");
