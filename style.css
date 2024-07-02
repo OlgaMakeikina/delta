@@ -300,8 +300,6 @@ transition: ease 0.5s;
     font-weight: 400;
     margin-bottom: 10px;
 }
-/* Новости */
-
 
 
 /* Карусель */
@@ -432,7 +430,28 @@ box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
 .accordion_btn:hover, .neon-btn:focus {
 outline: 0;
 }
-   
+
+/* Новости */
+.news_box {
+    background-color: #ffffff;
+    
+    padding: 10px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    color: #0E2F56;
+    box-shadow: 0 8px 16px rgb(238, 238, 238, 0.2),
+    0 -8px 16px rgb(238, 238, 238, 0.2),
+    8px 0 16px rgb(238, 238, 238, 0.2),
+    -8px 0 16px rgb(238, 238, 238, 0.2);
+    cursor: pointer;
+    
+}
+
+.news_box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
 
 /* Контакты */
 #contacts {

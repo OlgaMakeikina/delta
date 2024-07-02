@@ -1,3 +1,143 @@
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".main_header", { opacity: 0, y: -100, duration: 2, delay: 0.5 });
+gsap.from(".main_header_text", { opacity: 0, y: 100, duration: 2, delay: 1 });
+gsap.from(".info_about", { opacity: 0, x: -300, duration: 1, delay: 2, stagger: 1 });
+gsap.from(".logo", { opacity: 0, x: 200, duration: 2, delay: 0.5 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    let isAnimationTriggered = false;
+  
+    // Анимация при прокрутке
+    gsap.from(".company_box", {
+      scrollTrigger: {
+        trigger: "#about_company",
+        start: "top center",
+        end: "top 100px",
+        scrub: true,
+        onEnter: () => { isAnimationTriggered = true; }
+      },
+      delay: 0.7,
+      duration: 3,
+      opacity: 0,
+    });
+  
+    // Плавная прокрутка и анимация при нажатии на ссылку
+    document.querySelector('.link[href="#about_company"]').addEventListener('click', function (e) {
+      e.preventDefault();
+  
+      // Плавный переход к разделу "О компании"
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: "#about_company",
+          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        },
+        onComplete: function() {
+          // Анимация после прокрутки
+          if (!isAnimationTriggered) {
+            gsap.fromTo(".company_box", 
+              { opacity: 0 }, 
+              { opacity: 1, duration: 3 }
+            );
+            isAnimationTriggered = true;
+          }
+        }
+      });
+    });
+  });
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    // Плавная прокрутка для раздела "Документация"
+    document.querySelector('.link[href="#documents"]').addEventListener('click', function (e) {
+      e.preventDefault();
+  
+      // Плавный переход к разделу "Документация"
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: "#documents",
+          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        }
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Плавная прокрутка для раздела "Документация"
+    document.querySelector('.link[href="#contacts"]').addEventListener('click', function (e) {
+      e.preventDefault();
+  
+      // Плавный переход к разделу "Документация"
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: "#contacts",
+          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        }
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let isAnimationTriggered = false;
+  
+    // Анимация при прокрутке для каждого элемента .cont_office
+    gsap.utils.toArray(".cont_office").forEach(function (office) {
+      gsap.from(office, {
+        scrollTrigger: {
+          trigger: office,
+          start: "top center",
+          end: "top 100px",
+          scrub: true,
+          onEnter: () => { isAnimationTriggered = true; }
+        },
+        delay: 0.7,
+        duration: 3,
+        opacity: 0,
+      });
+    });
+  
+    document.querySelector('.link[href="#objects"]').addEventListener('click', function (e) {
+      e.preventDefault();
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: "#objects",
+          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        }
+      });
+    });
+  
+    document.querySelector('.link[href="#documents"]').addEventListener('click', function (e) {
+      e.preventDefault();
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: "#documents",
+          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        }
+      });
+    });
+  });
+  
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    // Плавная прокрутка для раздела "Документация"
+    document.querySelector('.link[href="#news"]').addEventListener('click', function (e) {
+      e.preventDefault();
+  
+      // Плавный переход к разделу "Документация"
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: "#news",
+          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        }
+      });
+    });
+  });
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menu_btn');
     const menuIcon = document.getElementById('menu_icon');
@@ -248,3 +388,7 @@ mybutton.addEventListener("click", function() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 });
+
+// новости карусель
+
+      
