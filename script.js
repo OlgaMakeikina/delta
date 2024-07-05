@@ -390,5 +390,31 @@ mybutton.addEventListener("click", function() {
 });
 
 // новости карусель
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
 
+  let currentIndex = 0;
+
+  prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 3;
+      updateSliderPosition();
+  });
+
+  nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex < slides.length - 3) ? currentIndex + 1 : 0;
+      updateSliderPosition();
+  });
+
+  function updateSliderPosition() {
+      const transformValue = -(currentIndex * 100 / 3);
+      slider.style.transform = `translateX(${transformValue}%)`;
+  }
+});
+
+document.getElementById('news_btn').addEventListener('click', function() {
+  window.open('Soobshenie_akcioneram_ao_delta_2024.pdf', '_blank');
+});
       
