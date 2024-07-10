@@ -393,8 +393,8 @@ mybutton.addEventListener("click", function() {
 document.addEventListener('DOMContentLoaded', function() {
   const slider = document.querySelector('.slider');
   const slides = document.querySelectorAll('.slide');
-  const prevButton = document.querySelector('.prev');
-  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev_news');
+  const nextButton = document.querySelector('.next_news');
 
   let currentIndex = 0;
 

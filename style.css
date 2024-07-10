@@ -438,7 +438,7 @@ outline: 0;
     font-family: "Roboto", sans-serif;
     text-align: center;
     color: #0E2F56;
-    box-shadow: 0 0 4px 4px #a3b6d1 inset, 0 0 0 0 #11468F;
+    border: #DA1212 1px solid;
     cursor: pointer;
     height: 100%;
 }
@@ -479,6 +479,7 @@ box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
     width: 80%;
     margin: auto;
     overflow: hidden; 
+    margin-bottom: 100px;
 }
 
 .slider-wrapper {
@@ -511,11 +512,11 @@ box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
     z-index: 10; 
 }
 
-.prev {
+.prev_news {
     left: 10px;
 }
 
-.next {
+.next_news {
     right: 10px;
 }
 
