@@ -59,61 +59,69 @@
       
          <section id="objects">
             <h2 class="heading">Склады</h2>
-<div>
-   <div class="cont_office">
-               <div class="slider-container">
-               <button id="back" class="slider_btn"><img src="back.png"></button>
-               <img id="pictures" src="1.jpg">
-               <button id="next" class="slider_btn"><img src="next.png"></button>          
-               </div>
-
-
-               <div class="cont_item">
-                  <div class="cont_office_name">
-                     <p>Площадь: <span>5860 кв.м</span></p>
-                     <p>Цена: <span>от 4500 руб/кв.м в год</span></p>
-                  </div>
-                  <hr>
-                  <div>
-                     <h4 class="characterictics_header">Характеристики</h4>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>Отдельно стоящий двухэтажный ангар</p>
-                     </div>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>Стены из панелей типа "сэндвич"</p>
-                     </div>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>Полы: 1й этаж - армированный бетон, 2й этаж - металлический лист</p>
-                     </div>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>Потолки: высота первого этажа - 6 м., второго – 4,5 м. (до ферм)</p>
-                     </div>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>2 электроподъемника грузоподъемностью по 3 тонны каждый</p>
-                     </div>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>Данный склад может быть разбит на секции. <span>Возможна посекционная аренда!</span></p>
-                     </div>
-                     <div class="characterictics">
-                        <img src="tick.png" width="30px">
-                        <p>Коммунальные услуги включены в стоимость.</p>
-                  </div>  
-                  <button class="more_info_btn">Подробнее>></button>
-                  </div>                            
-               </div>
-                <div class="more_info">
-            <p>test</p>
-            </div>
-            </div>
-
-         </div>
             
+
+            <div class="cont_office" id="cont_office">
+            
+               <div class="first_office_box">
+                  <div class="slider-container">
+                   <button id="back" class="slider_btn"><img src="back.png"></button>
+                   <img id="pictures" src="1.jpg">
+                   <button id="next" class="slider_btn"><img src="next.png"></button>
+               </div>
+           
+               <div class="cont_item">
+                   <div class="cont_office_name">
+                       <p>Площадь: <span>5860 кв.м</span></p>
+                       <p>Цена: <span>от 4500 руб/кв.м в год</span></p>
+                   </div>
+                   <hr>
+                   <div>
+                       <h4 class="characterictics_header">Характеристики</h4>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>Отдельно стоящий двухэтажный ангар</p>
+                       </div>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>Стены из панелей типа "сэндвич"</p>
+                       </div>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>Полы: 1й этаж - армированный бетон, 2й этаж - металлический лист</p>
+                       </div>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>Потолки: высота первого этажа - 6 м., второго – 4,5 м. (до ферм)</p>
+                       </div>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>2 электроподъемника грузоподъемностью по 3 тонны каждый</p>
+                       </div>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>Данный склад может быть разбит на секции. <span>Возможна посекционная аренда!</span></p>
+                       </div>
+                       <div class="characterictics">
+                           <img src="tick.png" width="30px">
+                           <p>Коммунальные услуги включены в стоимость.</p>
+                       </div>
+                       <button class="more_info_btn" onclick="toggleMoreInfo()">Подробнее>></button>
+                   </div>
+           </div>
+               </div>
+                         <div id="more_info" style="display: none;">
+
+                   <p>Ангар построен в 2003 году. Стены выполнены из панелей типа «сэндвич», полы первого этажа – <b>армированный бетон</b>, второго – <b>металлический лист</b>. Нагрузка на полы первого этажа практически не лимитирована. На основании заключения проектной организации,  с учетом износа, нагрузка на пол второго этажа составляет <b>500 кг/кв.м.</b></p>
+                   <p><b>Высота потолка</b> первого этажа составляет <b>6 м.</b>, второго – <b>4,5 м.</b> (до ферм). Здание оборудовано <b>двумя электрическими подъемниками</b> грузоподъемностью по 3 тонны каждый. Перед подъемниками оборудована погрузочно-разгрузочная зона с металлическим  пандусом и навесом.</p>
+                   <p>Склад расположенный на первом этаже оборудован <b>автоматическими подъемными воротами</b> высотой 4,5 м. Пандус перед воротами отсутствует. Здание оборудовано системами <b>центрального отопления, автоматического пожаротушения, водоснабжения и канализации.</b></p>
+                   <p>Склад может быть разбит на <b>четыре независимых секции</b> приблизительно по полторы тысячи кв.м. каждая. При этом, все секции будут иметь <b>отдельные зоны погрузки-разгрузки.</b></p>
+            </div> 
+           
+         
+     
+           </div>
+                     
 
 
             <div class="cont_office">

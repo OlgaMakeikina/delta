@@ -188,6 +188,24 @@ text-transform: uppercase;
     right: 10px; 
 }
 
+#cont_office {
+    display: flex;
+    flex-direction: column;
+}
+
+#more_info p{
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #0E2F56;
+    margin: 10px 10%;
+    border-top: #DA1212 1px solid;
+    text-align: justify;
+}
+
+.first_office_box {
+    display: flex;
+}
+
 .cont_office_name {
     display: flex;
     justify-content: space-evenly;
@@ -230,17 +248,30 @@ text-transform: uppercase;
     color: #DA1212;
 }
 
-.more_info {
-    height: 300px;
-}
-
 .more_info_btn {
-    color: #0E2F56;
-    border: #DA1212 2px solid;
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 5px;
-    font-family: "Roboto", sans-serif;
+    border-radius: 5px;
+    box-sizing: border-box;
+-webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+background-color: transparent;
+border: 2px solid #e74c3c;
+cursor: pointer;
+font-size: 0.950em;
+line-height: 1;
+margin: 15px;
+padding: 10px;
+text-decoration: none;
+text-align: center;
+border-color: #11468F;
+color: #fff;
+box-shadow: 0 0 40px 40px #11468F inset, 0 0 0 0 #11468F;
+-webkit-transition: all 150ms ease-in-out;
+transition: all 150ms ease-in-out;
+}
+.more_info_btn:hover {
+  color: #11468F;
+box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
 }
 
 
@@ -300,6 +331,7 @@ transition: ease 0.5s;
     font-weight: 400;
     margin-bottom: 10px;
 }
+
 
 
 /* Карусель */
@@ -392,17 +424,7 @@ transition: ease 0.5s;
   }
 
   .accordion_btn {
-    padding: 5px;
     border-radius: 5px;
-    margin: 5px;
-    font-family: "Roboto", sans-serif;
-    color: #ffffff;
-    border: none;
-    background-color: #11468F;
-    cursor: pointer;
-  }
-
-  .accordion_btn {
     box-sizing: border-box;
 -webkit-appearance: none;
    -moz-appearance: none;
@@ -449,6 +471,7 @@ outline: 0;
 }
 
 .news_btn {
+    border-radius: 5px;
     box-sizing: border-box;
 -webkit-appearance: none;
    -moz-appearance: none;
@@ -601,7 +624,7 @@ box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
 #write_us {
     display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 36%;
     right: 30px;
     z-index: 99;
     border: none;
@@ -609,10 +632,10 @@ box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
     cursor: pointer;
   }
   #call_us {
-    bottom: 70px;
+    bottom: 43%;
   }
   #write_us {
-    bottom: 120px;
+    bottom: 50%;
   }
   #toTop:hover,
   #call_us:hover,

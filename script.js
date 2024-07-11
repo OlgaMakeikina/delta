@@ -80,22 +80,22 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-    let isAnimationTriggered = false;
-  
     // Анимация при прокрутке для каждого элемента .cont_office
     gsap.utils.toArray(".cont_office").forEach(function (office) {
-      gsap.from(office, {
-        scrollTrigger: {
-          trigger: office,
-          start: "top center",
-          end: "top 100px",
-          scrub: true,
-          onEnter: () => { isAnimationTriggered = true; }
-        },
-        delay: 0.7,
-        duration: 3,
-        opacity: 0,
-      });
+        gsap.fromTo(office, 
+            { opacity: 0 }, 
+            { 
+                opacity: 1,
+                duration: 3,
+                scrollTrigger: {
+                    trigger: office,
+                    start: "top center",
+                    end: "top 100px",
+                    scrub: true,
+                    toggleActions: "play none none none"
+                }
+            }
+        );
     });
   
     document.querySelector('.link[href="#objects"]').addEventListener('click', function (e) {
@@ -166,6 +166,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// кнопка Подробнее
+function toggleMoreInfo() {
+  var moreInfo = document.getElementById("more_info");
+  if (moreInfo.style.display === "none") {
+      moreInfo.style.display = "block";
+  } else {
+      moreInfo.style.display = "none";
+  }
+}
 
 // карусель фото
 const back = document.querySelector('#back');
