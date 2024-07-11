@@ -382,7 +382,7 @@ const call = document.querySelector("#call_us");
 const message = document.querySelector("#write_us");
 
 window.addEventListener("scroll", function() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         mybutton.style.display = "block";
         call.style.display = "block";
         message.style.display = "block";
