@@ -400,27 +400,42 @@ mybutton.addEventListener("click", function() {
 
 // новости карусель
 document.addEventListener('DOMContentLoaded', function() {
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
   const prevButton = document.querySelector('.prev_news');
   const nextButton = document.querySelector('.next_news');
-
+  const slider = document.querySelector('.slider');
   let currentIndex = 0;
 
+  function showSlide(index) {
+      const slides = document.querySelectorAll('.slide');
+      const totalSlides = slides.length;
+      const slideWidth = slides[0].clientWidth;
+      const maxIndex = totalSlides - 1;
+
+      if (index < 0) {
+          currentIndex = 0;
+      } else if (index > maxIndex) {
+          currentIndex = maxIndex;
+      } else {
+          currentIndex = index;
+      }
+
+      const offset = -currentIndex * slideWidth;
+      slider.style.transform = `translateX(${offset}px)`;
+  }
+
   prevButton.addEventListener('click', () => {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 3;
-      updateSliderPosition();
+      showSlide(currentIndex - 1);
   });
 
   nextButton.addEventListener('click', () => {
-      currentIndex = (currentIndex < slides.length - 3) ? currentIndex + 1 : 0;
-      updateSliderPosition();
+      showSlide(currentIndex + 1);
   });
 
-  function updateSliderPosition() {
-      const transformValue = -(currentIndex * 100 / 3);
-      slider.style.transform = `translateX(${transformValue}%)`;
-  }
+  window.addEventListener('resize', () => {
+      showSlide(currentIndex);
+  });
+
+  showSlide(currentIndex);
 });
 
 document.getElementById('news_btn').addEventListener('click', function() {
