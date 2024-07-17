@@ -1,5 +1,5 @@
 # Description
-The website for cafe created for the company that rents out warehouses. The site is designed to introduce сustomers to the company, its offer, documantation and contacts.
+The website created for the company that rents out warehouses. The site is designed to introduce сustomers to the company, its offer, documantation and contacts.
 
 ### Usage
 Click on the button  in the navbar or scroll the page to find out information.
