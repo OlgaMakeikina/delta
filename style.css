@@ -557,7 +557,11 @@ box-shadow: 0 0 10px 0 #11468F inset, 0 0 10px 4px #11468F;
 .footer {
     color: #EEEEEE;
     font-family: "Roboto", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+.footer a {
+    color: #EEEEEE;
 }
 
 
