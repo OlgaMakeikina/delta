@@ -718,7 +718,8 @@ text-align: center;
 }
 
 @media (max-width: 360px) {
-.slider-container img {
+#pictures,
+.slider-container-img {
     width: 245px;
 }
 .company_box {
