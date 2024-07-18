@@ -717,7 +717,7 @@ text-align: center;
     }
 }
 
-@media (max-width: 344px) {
+@media (max-width: 360px) {
 .slider-container img {
     width: 245px;
 }

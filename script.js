@@ -8,79 +8,42 @@ gsap.from(".logo", { opacity: 0, x: 200, duration: 2, delay: 0.5 });
 document.addEventListener('DOMContentLoaded', function () {
     let isAnimationTriggered = false;
   
-    // Анимация при прокрутке
     gsap.from(".company_box", {
-      scrollTrigger: {
-        trigger: "#about_company",
-        start: "top center",
-        end: "top 100px",
-        scrub: true,
-        onEnter: () => { isAnimationTriggered = true; }
-      },
-      delay: 0.7,
-      duration: 3,
-      opacity: 0,
-    });
-  
-    // Плавная прокрутка и анимация при нажатии на ссылку
-    document.querySelector('.link[href="#about_company"]').addEventListener('click', function (e) {
-      e.preventDefault();
-  
-      // Плавный переход к разделу "О компании"
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: {
-          y: "#about_company",
-          offsetY: 70 // Настройте значение отступа по своему усмотрению
+        scrollTrigger: {
+            trigger: "#about_company",
+            start: "top center",
+            end: "top 100px",
+            scrub: true,
+            onEnter: () => { isAnimationTriggered = true; }
         },
-        onComplete: function() {
-          // Анимация после прокрутки
-          if (!isAnimationTriggered) {
-            gsap.fromTo(".company_box", 
-              { opacity: 0 }, 
-              { opacity: 1, duration: 3 }
-            );
-            isAnimationTriggered = true;
-          }
-        }
-      });
+        delay: 0.7,
+        duration: 3,
+        opacity: 0,
     });
-  });
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    // Плавная прокрутка для раздела "Документация"
-    document.querySelector('.link[href="#documents"]').addEventListener('click', function (e) {
-      e.preventDefault();
-  
-      // Плавный переход к разделу "Документация"
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: {
-          y: "#documents",
-          offsetY: 70 // Настройте значение отступа по своему усмотрению
-        }
-      });
-    });
-  });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    // Плавная прокрутка для раздела "Документация"
-    document.querySelector('.link[href="#contacts"]').addEventListener('click', function (e) {
-      e.preventDefault();
-  
-      // Плавный переход к разделу "Документация"
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: {
-          y: "#contacts",
-          offsetY: 70 // Настройте значение отступа по своему усмотрению
-        }
-      });
+    
+    document.querySelectorAll('.link').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            const targetId = e.target.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: {
+                        y: targetId,
+                        offsetY: 70 
+                    },
+                    onComplete: function() {
+                        if (targetId === '#about_company' && !isAnimationTriggered) {
+                            gsap.fromTo(".company_box", { opacity: 0 }, { opacity: 1, duration: 3 });
+                            isAnimationTriggered = true;
+                        }
+                    }
+                });
+            }
+        });
     });
-  });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    // Анимация при прокрутке для каждого элемента .cont_office
     gsap.utils.toArray(".cont_office").forEach(function (office) {
         gsap.fromTo(office, 
             { opacity: 0 }, 
@@ -97,46 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         );
     });
-  
-    document.querySelector('.link[href="#objects"]').addEventListener('click', function (e) {
-      e.preventDefault();
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: {
-          y: "#objects",
-          offsetY: 70 // Настройте значение отступа по своему усмотрению
-        }
-      });
-    });
-  
-    document.querySelector('.link[href="#documents"]').addEventListener('click', function (e) {
-      e.preventDefault();
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: {
-          y: "#documents",
-          offsetY: 70 // Настройте значение отступа по своему усмотрению
-        }
-      });
-    });
-  });
-  
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    // Плавная прокрутка для раздела "Документация"
-    document.querySelector('.link[href="#news"]').addEventListener('click', function (e) {
-      e.preventDefault();
-  
-      // Плавный переход к разделу "Документация"
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: {
-          y: "#news",
-          offsetY: 70 // Настройте значение отступа по своему усмотрению
-        }
-      });
-    });
-  });
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menu_btn');
@@ -147,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.addEventListener('click', () => {
         nav.classList.toggle('open');
 
-        // Меняем иконку кнопки
         if (nav.classList.contains('open')) {
             menuIcon.src = 'close.png';
             menuIcon.alt = 'Закрыть';
@@ -198,80 +122,12 @@ back.addEventListener('click', () => {
 
 
   // Открытие PDF в новой вкладке
-  document.getElementById('ustav').addEventListener('click', function() {
-    window.open('ystavpao.pdf', '_blank');
+  document.querySelectorAll('.accordion_btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const file = button.getAttribute('data-file');
+        window.open(file, '_blank');
+    });
 });
-
-document.getElementById('otchet3').addEventListener('click', function() {
-    window.open('year2012.pdf', '_blank');
-});
-document.getElementById('otchet6').addEventListener('click', function() {
-    window.open('year2013.pdf', '_blank');
-});
-document.getElementById('otchet8').addEventListener('click', function() {
-    window.open('financial_year2014.pdf', '_blank');
-});
-
-document.getElementById('otchet2').addEventListener('click', function() {
-    window.open('audit2012.pdf', '_blank');
-});
-document.getElementById('otchet5').addEventListener('click', function() {
-    window.open('audit2013.pdf', '_blank');
-});
-document.getElementById('otchet7').addEventListener('click', function() {
-    window.open('audit.pdf', '_blank');
-});
-
-document.getElementById('otchet1').addEventListener('click', function() {
-    window.open('buh2012.pdf', '_blank');
-});
-document.getElementById('otchet4').addEventListener('click', function() {
-    window.open('buh2013.pdf', '_blank');
-});
-
-
-document.getElementById('soobshenie24').addEventListener('click', function() {
-    window.open('Soobshenie_akcioneram_ao_delta_2024.pdf', '_blank');
-});
-document.getElementById('soobshenie23').addEventListener('click', function() {
-    window.open('Soobshenie_akcioneram_ao_delta_2023.pdf', '_blank');
-});
-document.getElementById('soobshenie22').addEventListener('click', function() {
-    window.open('Soobshenie_akcioneram_ao_delta_2022.pdf', '_blank');
-});
-document.getElementById('soobshenie21').addEventListener('click', function() {
-    window.open('Soobshenie_akcioneram_ao_delta_2021.pdf', '_blank');
-});
-
-
-document.getElementById('golosovanie24').addEventListener('click', function() {
-    window.open('golos_2024.pdf', '_blank');
-});
-document.getElementById('golosovanie23').addEventListener('click', function() {
-    window.open('golos_2023.pdf', '_blank');
-});
-document.getElementById('golosovanie22').addEventListener('click', function() {
-    window.open('golos_2022.pdf', '_blank');
-});
-document.getElementById('golosovanie21').addEventListener('click', function() {
-    window.open('golos_2021.pdf', '_blank');
-});
-document.getElementById('golosovanie20').addEventListener('click', function() {
-    window.open('golos_2020.pdf', '_blank');
-});
-document.getElementById('golosovanie19').addEventListener('click', function() {
-    window.open('golos_2019.pdf', '_blank');
-});
-
-
-document.getElementById('ocenka1').addEventListener('click', function() {
-    window.open('Otchet ocenka arendi sklad Alt 41-1.pdf', '_blank');
-});
-document.getElementById('ocenka6').addEventListener('click', function() {
-    window.open('Otchet ocenka arendi sklad Alt 41-6.pdf', '_blank');
-});
-
-
 
 
 // Карусель
@@ -284,14 +140,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalItems = items.length;
     let currentIndex = 0;
 
-    // Clone first and last items for infinite effect
+
     const firstItems = Array.from(items).slice(0, itemsToShow).map(item => item.cloneNode(true));
     const lastItems = Array.from(items).slice(-itemsToShow).map(item => item.cloneNode(true));
     firstItems.forEach(item => carouselTrack.appendChild(item));
     lastItems.forEach(item => carouselTrack.insertBefore(item, items[0]));
 
-    // Update current index and translateX value
-    currentIndex = itemsToShow; // Starting point with offset
+   
+    currentIndex = itemsToShow; 
     updateCarousel();
 
     function updateCarousel() {
@@ -312,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(() => {
                         carouselTrack.style.transition = 'transform 0.5s ease';
                     });
-                }, 500); // Timeout must match the CSS transition duration
+                }, 500); 
             }
         }
     });
@@ -329,12 +185,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(() => {
                         carouselTrack.style.transition = 'transform 0.5s ease';
                     });
-                }, 500); // Timeout must match the CSS transition duration
+                }, 500); 
             }
         }
     });
 
-    // Initialize carousel
     updateCarousel();
 });
 
@@ -347,21 +202,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const panel = this.nextElementSibling;
             const isOpen = panel.classList.contains('open');
 
-            // Закрытие всех панелей
+        
             for (const otherButton of accordions) {
                 const otherPanel = otherButton.nextElementSibling;
                 if (otherPanel !== panel) {
-                    otherPanel.style.transition = 'none'; // Отключение анимации
+                    otherPanel.style.transition = 'none'; 
                     otherPanel.style.maxHeight = null;
                     otherPanel.classList.remove('open');
                     otherButton.classList.remove('active');
-                    // Принудительное выполнение стилей
+                    
                     otherPanel.offsetHeight;
-                    otherPanel.style.transition = ''; // Включение анимации
+                    otherPanel.style.transition = ''; 
                 }
             }
 
-            // Переключение текущей панели
             if (isOpen) {
                 panel.style.maxHeight = null;
                 panel.classList.remove('open');
@@ -376,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // scroll to up
-
 const mybutton = document.querySelector("#toTop");
 const call = document.querySelector("#call_us");
 const message = document.querySelector("#write_us");
@@ -400,45 +253,83 @@ mybutton.addEventListener("click", function() {
 
 // новости карусель
 document.addEventListener('DOMContentLoaded', function() {
-  const prevButton = document.querySelector('.prev_news');
-  const nextButton = document.querySelector('.next_news');
-  const slider = document.querySelector('.slider');
-  let currentIndex = 0;
-
-  function showSlide(index) {
-      const slides = document.querySelectorAll('.slide');
-      const totalSlides = slides.length;
+    const prevButton = document.querySelector('.prev_news');
+    const nextButton = document.querySelector('.next_news');
+    const slider = document.querySelector('.slider');
+    let slides = document.querySelectorAll('.slide');
+    let currentIndex = 1;
+  
+    function cloneSlides() {
+      const firstSlide = slides[0].cloneNode(true);
+      const secondSlide = slides[1].cloneNode(true);
+      const thirdSlide = slides[2].cloneNode(true);
+      const lastSlide = slides[slides.length - 1].cloneNode(true);
+      const secondLastSlide = slides[slides.length - 2].cloneNode(true);
+      const thirdLastSlide = slides[slides.length - 3].cloneNode(true);
+  
+      slider.appendChild(firstSlide);
+      slider.appendChild(secondSlide);
+      slider.appendChild(thirdSlide);
+      slider.insertBefore(thirdLastSlide, slides[0]);
+      slider.insertBefore(secondLastSlide, slides[0]);
+      slider.insertBefore(lastSlide, slides[0]);
+  
+      slides = document.querySelectorAll('.slide');
+    }
+  
+    function updateSlidePosition(instant = false) {
       const slideWidth = slides[0].clientWidth;
-      const maxIndex = totalSlides - 1;
-
-      if (index < 0) {
-          currentIndex = 0;
-      } else if (index > maxIndex) {
-          currentIndex = maxIndex;
+      if (instant) {
+        slider.style.transition = 'none';
       } else {
-          currentIndex = index;
+        slider.style.transition = 'transform 0.5s ease';
       }
-
-      const offset = -currentIndex * slideWidth;
-      slider.style.transform = `translateX(${offset}px)`;
-  }
-
-  prevButton.addEventListener('click', () => {
+      slider.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+    }
+  
+    function showSlide(index) {
+      const totalSlides = slides.length;
+  
+      if (index < 0) {
+        currentIndex = totalSlides - 6; 
+      } else if (index >= totalSlides - 3) { 
+        currentIndex = 3; 
+      } else {
+        currentIndex = index;
+      }
+  
+      updateSlidePosition();
+  
+      slider.addEventListener('transitionend', () => {
+        if (currentIndex === totalSlides - 3) { 
+          currentIndex = 3; 
+          updateSlidePosition(true);
+        } else if (currentIndex === 0) {
+          currentIndex = totalSlides - 6; 
+          updateSlidePosition(true);
+        }
+      }, { once: true });
+    }
+  
+    prevButton.addEventListener('click', () => {
       showSlide(currentIndex - 1);
-  });
-
-  nextButton.addEventListener('click', () => {
+    });
+  
+    nextButton.addEventListener('click', () => {
       showSlide(currentIndex + 1);
+    });
+  
+    window.addEventListener('resize', () => {
+      updateSlidePosition(true);
+    });
+  
+    cloneSlides();
+    updateSlidePosition(true);
   });
-
-  window.addEventListener('resize', () => {
-      showSlide(currentIndex);
-  });
-
-  showSlide(currentIndex);
-});
-
+  
+  
 document.getElementById('news_btn').addEventListener('click', function() {
   window.open('Soobshenie_akcioneram_ao_delta_2024.pdf', '_blank');
 });
-      
+
+
