@@ -84,7 +84,6 @@ ul {
     height: 600px;
     width: 100%;
     background-image: url("storage.jpg");
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -253,7 +252,6 @@ text-transform: uppercase;
     height: 700px;
     width: 100%;
     background-image: url("storage.jpg");
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
