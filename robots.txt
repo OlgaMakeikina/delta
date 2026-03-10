@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deltacompany.ru/sitemap.xml
