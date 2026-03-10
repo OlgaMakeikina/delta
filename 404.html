@@ -112,8 +112,9 @@
       </div>
 
       <footer>
-         <p>Copyright © 2024. АО "Дельта" (<a href="https://deltacompany.ru/">https://deltacompany.ru/</a>)</p>
-         <p>© 2011-2024 Разработка сайта, поддержка и хостинг — <a href="https://hhivp.com/" target="_blank">ООО "АйТи Решения"</a></p>
+         <p>Copyright © <span id="footer-year"></span>. АО "Дельта" (<a href="https://deltacompany.ru/">https://deltacompany.ru/</a>)</p>
+         <p>© 2011-<span class="footer-year"></span> Разработка сайта, поддержка и хостинг — <a href="https://hhivp.com/" target="_blank">ООО "АйТи Решения"</a></p>
+         <script>document.querySelectorAll('#footer-year, .footer-year').forEach(el => el.textContent = new Date().getFullYear());</script>
       </footer>
    </body>
 </html>
