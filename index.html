@@ -12,24 +12,87 @@
       <meta property="og:title" content='АО "Дельта" — аренда складов и офисов в Москве'>
       <meta property="og:description" content="Аренда складских и офисных помещений от собственника. 30 лет на рынке, 5 км от МКАД.">
       <meta property="og:image" content="https://deltacompany.ru/storage.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
       <meta property="og:locale" content="ru_RU">
+      <meta property="og:site_name" content='АО "Дельта"'>
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content='АО "Дельта" — аренда складов и офисов в Москве'>
+      <meta name="twitter:description" content="Аренда складских и офисных помещений от собственника. 30 лет на рынке, 5 км от МКАД.">
+      <meta name="twitter:image" content="https://deltacompany.ru/storage.jpg">
 
       <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": ["RealEstateAgent", "LocalBusiness", "Organization"],
+        "@id": "https://deltacompany.ru/#org",
         "name": "АО «Дельта»",
-        "description": "Аренда складских и офисных помещений от собственника в Москве. 30 лет на рынке, 5 км от МКАД.",
+        "alternateName": "Дельта",
+        "legalName": "Акционерное общество «Дельта»",
+        "description": "Аренда складских и офисных помещений от собственника в Москве. 30 лет на рынке, 5 км от МКАД, удобный заезд с Алтуфьевского шоссе.",
         "url": "https://deltacompany.ru/",
         "telephone": "+74992012020",
         "email": "delta.delta.2012@mail.ru",
+        "logo": "https://deltacompany.ru/laibl.gif",
         "image": "https://deltacompany.ru/storage.jpg",
+        "foundingDate": "1995",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Альтуфьевское шоссе, д. 41",
+          "streetAddress": "Алтуфьевское шоссе, д. 41",
           "addressLocality": "Москва",
+          "postalCode": "127410",
           "addressCountry": "RU"
-        }
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+74992012020",
+          "email": "delta.delta.2012@mail.ru",
+          "contactType": "leasing",
+          "availableLanguage": "Russian",
+          "areaServed": "RU"
+        }],
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }],
+        "areaServed": [
+          { "@type": "Place", "name": "Москва" },
+          { "@type": "Place", "name": "Московская область" }
+        ],
+        "knowsAbout": [
+          "Аренда складских помещений",
+          "Аренда офисных помещений",
+          "Коммерческая недвижимость",
+          "Складская недвижимость Москва",
+          "Аренда от собственника"
+        ],
+        "currenciesAccepted": "RUB",
+        "paymentAccepted": "Cash, Bank Transfer"
+      }
+      </script>
+
+      <!--
+        Speculation Rules API (Chromium 122+) — prerender same-origin pages
+        on hover/pointerdown для почти мгновенной навигации.
+      -->
+      <script type="speculationrules">
+      {
+        "prerender": [
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/*" },
+                { "not": { "href_matches": "/sitemap*" } },
+                { "not": { "href_matches": "/*.pdf" } },
+                { "not": { "href_matches": "/*.zip" } },
+                { "not": { "href_matches": "/*.gif" } }
+              ]
+            },
+            "eagerness": "moderate"
+          }
+        ]
       }
       </script>
       <!-- Google tag (gtag.js) -->
