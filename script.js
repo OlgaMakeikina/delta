@@ -328,8 +328,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   
-document.getElementById('news_btn').addEventListener('click', function() {
-  window.open('Soobshenie_akcioneram_ao_delta_2024.pdf', '_blank');
+// Универсальный handler «Подробнее» — открывает PDF указанный в data-pdf,
+// чтобы кнопок могло быть несколько (по одной на каждую новость).
+document.querySelectorAll('.news_btn[data-pdf]').forEach((btn) => {
+  btn.addEventListener('click', function () {
+    window.open(this.dataset.pdf, '_blank');
+  });
 });
 
 
