@@ -95,15 +95,11 @@
         ]
       }
       </script>
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE6SG7DV69"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-RE6SG7DV69');
-      </script>
+      <!--
+        Google Analytics (G-RE6SG7DV69) активируется только после явного
+        согласия пользователя в баннере cookies — см. /cookie-banner внизу
+        страницы. Это требование 152-ФЗ.
+      -->
 
       <link rel="icon" type="image/x-icon" href="favicon.ico">
       <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -584,9 +580,89 @@
             <hr>
             <p class="footer" style="margin-top: 1.2em">Copyright © <span id="footer-year"></span>. АО "Дельта" (<a href="https://deltacompany.ru/">https://deltacompany.ru/</a>)</p>
             <p class="footer" style="margin-top: 1.2em">Сайт разработан и сопровождается техническим партнёром&nbsp;— <a href="https://hhivp.com/" target="_blank" rel="noopener">ООО «АйТи Решения»</a></p>
+            <p class="footer" style="margin-top: 0.6em; font-size: 0.78em; opacity: 0.7;">
+              <a href="#" id="cookie-revoke" style="color: inherit; text-decoration: underline dotted;">Настройки cookies</a>
+            </p>
             <script>document.querySelectorAll('#footer-year, .footer-year').forEach(el => el.textContent = new Date().getFullYear());</script>
          </section>
       </main>
+
+      <!--
+        Cookie consent banner — 152-ФЗ.
+        Google Analytics активируется только после "Принять". Выбор хранится
+        в localStorage 'delta-consent' и cookie 'delta-consent' (12 мес).
+        Ссылка "Настройки cookies" в футере открывает баннер заново.
+      -->
+      <div id="cookie-consent" hidden>
+        <p>
+          Мы используем cookies и систему статистики Google Analytics, чтобы
+          понимать, как вы пользуетесь сайтом. Подробнее — в нашей
+          <a href="#" id="cc-privacy-link">политике конфиденциальности</a>.
+        </p>
+        <div class="cc-buttons">
+          <button type="button" id="cc-deny">Только необходимые</button>
+          <button type="button" id="cc-accept">Принять</button>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var KEY = 'delta-consent';
+          var GA_ID = 'G-RE6SG7DV69';
+          var banner = document.getElementById('cookie-consent');
+
+          function setConsent(value) {
+            try { localStorage.setItem(KEY, value); } catch (e) {}
+            var exp = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = KEY + '=' + value + '; expires=' + exp + '; path=/; SameSite=Lax';
+          }
+          function getConsent() {
+            try {
+              var ls = localStorage.getItem(KEY);
+              if (ls) return ls;
+            } catch (e) {}
+            var m = document.cookie.match(/(?:^|; )delta-consent=([^;]+)/);
+            return m ? decodeURIComponent(m[1]) : null;
+          }
+          function loadAnalytics() {
+            if (window.__gaLoaded) return;
+            window.__gaLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', GA_ID);
+          }
+
+          var current = getConsent();
+          if (current === 'accept') {
+            loadAnalytics();
+          } else if (current === 'deny') {
+            // ничего не делаем — статистика не активируется
+          } else {
+            banner.hidden = false;
+          }
+
+          document.getElementById('cc-accept').addEventListener('click', function () {
+            setConsent('accept');
+            banner.hidden = true;
+            loadAnalytics();
+          });
+          document.getElementById('cc-deny').addEventListener('click', function () {
+            setConsent('deny');
+            banner.hidden = true;
+          });
+          document.getElementById('cookie-revoke').addEventListener('click', function (e) {
+            e.preventDefault();
+            try { localStorage.removeItem(KEY); } catch (err) {}
+            document.cookie = KEY + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+            banner.hidden = false;
+          });
+        })();
+      </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
