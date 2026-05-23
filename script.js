@@ -257,7 +257,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.next_news');
     const slider = document.querySelector('.slider');
     let slides = document.querySelectorAll('.slide');
-    let currentIndex = 1;
+    // Стартуем на index=3 — это первый оригинальный слайд после 3 prepended clones
+    // (newest news), чтобы первой отображалась последняя добавленная новость.
+    let currentIndex = 3;
   
     function cloneSlides() {
       const firstSlide = slides[0].cloneNode(true);
