@@ -167,7 +167,10 @@
                <div class="first_office_box">
                   <div class="slider-container">
                    <button id="back" class="slider_btn"><img src="back.png"></button>
-                   <img id="pictures" src="1.jpg">
+                   <picture>
+                       <source type="image/webp" srcset="1.webp">
+                       <img id="pictures" src="1.jpg" alt="Складские помещения АО Дельта">
+                   </picture>
                    <button id="next" class="slider_btn"><img src="next.png"></button>
                </div>
            
@@ -222,7 +225,10 @@
 
             <div class="cont_office">
                <div class="slider-container">
-                   <img class="slider-container-img" src="Main3_m.jpg">
+                   <picture>
+                       <source type="image/webp" srcset="Main3_m.webp">
+                       <img class="slider-container-img" src="Main3_m.jpg" alt="Складской комплекс">
+                   </picture>
                </div>
             
                <div class="cont_item">
@@ -268,7 +274,10 @@
             <h2 class="heading">Офисы</h2>
             <div class="cont_office">
                <div class="slider-container">
-               <img class="slider-container-img" src="Ofis1_m.jpg" >
+               <picture>
+                   <source type="image/webp" srcset="Ofis1_m.webp">
+                   <img class="slider-container-img" src="Ofis1_m.jpg" alt="Офисные помещения">
+               </picture>
                </div>
                <div class="cont_item">
                   <div class="cont_office_name">
@@ -312,7 +321,10 @@
 
             <div class="cont_office">
                <div class="slider-container">
-               <img class="slider-container-img" src="Ofis1_m.jpg" >
+               <picture>
+                   <source type="image/webp" srcset="Ofis1_m.webp">
+                   <img class="slider-container-img" src="Ofis1_m.jpg" alt="Офисные помещения">
+               </picture>
                </div>
                <div class="cont_item">
                   <div class="cont_office_name">
@@ -356,7 +368,10 @@
 
             <div class="cont_office">
                <div class="slider-container">
-               <img class="slider-container-img" src="Ofis1_m.jpg" >
+               <picture>
+                   <source type="image/webp" srcset="Ofis1_m.webp">
+                   <img class="slider-container-img" src="Ofis1_m.jpg" alt="Офисные помещения">
+               </picture>
                </div>
                <div class="cont_item">
                   <div class="cont_office_name">
@@ -664,9 +679,10 @@
         })();
       </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+<!-- GSAP v3.10.4 локально (вместо Cloudflare CDN) — снимает 40 КБ third-party + ~60ms TBT. -->
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollToPlugin.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
