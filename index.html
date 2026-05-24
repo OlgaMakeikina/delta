@@ -613,11 +613,21 @@
             <hr>
             <p class="footer" style="margin-top: 1.2em">Copyright © <span id="footer-year"></span>. АО "Дельта" (<a href="https://deltacompany.ru/">https://deltacompany.ru/</a>)</p>
             <p class="footer" style="margin-top: 1.2em">
-              <a href="https://hhivp.com/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.45em; text-decoration: none; color: inherit;">
-                <img src="/hhivp-mark.svg" alt="" width="22" height="22" style="display: block; flex-shrink: 0;">
-                <span style="border-bottom: 1px dashed currentColor;">Разработка&nbsp;— hhivp.com</span>
+              <a href="https://hhivp.com/" target="_blank" rel="noopener" class="hhivp-credit" aria-label="Сделано в hhivp.com">
+                <span class="hhivp-credit-mark" aria-hidden="true">
+                  <img src="/hhivp-mark.svg" alt="" width="20" height="20">
+                </span>
+                <span class="hhivp-credit-text">Сделано&nbsp;в&nbsp;hhivp.com</span>
               </a>
             </p>
+            <style>
+              .hhivp-credit{display:inline-flex;align-items:center;vertical-align:middle;text-decoration:none;color:inherit;border:1px solid currentColor;border-radius:999px;padding:3px;gap:0;line-height:1;opacity:.6;transition:gap 240ms,padding-right 240ms,opacity 240ms}
+              .hhivp-credit:hover,.hhivp-credit:focus-visible{opacity:1;gap:8px;padding-right:12px;outline:none}
+              .hhivp-credit-mark{display:inline-flex;flex-shrink:0}
+              .hhivp-credit-mark img{display:block;width:20px;height:20px}
+              .hhivp-credit-text{display:inline-block;overflow:hidden;white-space:nowrap;max-width:0;font-size:.75rem;transition:max-width 240ms}
+              .hhivp-credit:hover .hhivp-credit-text,.hhivp-credit:focus-visible .hhivp-credit-text{max-width:200px}
+            </style>
             <p class="footer" style="margin-top: 0.6em; font-size: 0.78em; opacity: 0.7;">
               <a href="#" id="cookie-revoke" style="color: inherit; text-decoration: underline dotted;">Настройки cookies</a>
             </p>
